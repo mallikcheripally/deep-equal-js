@@ -1,0 +1,13 @@
+.github/
+.idea/
+coverage/
+node_modules/
+src/
+tests/
+
+.gitignore
+.npmignore
+rollup.config.cjs
+tsconfig.json
+yarn.lock
+*/.DS_Store

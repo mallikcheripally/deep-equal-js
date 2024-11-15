@@ -1,0 +1,34 @@
+node_modules/
+dist/
+coverage
+
+# Logs
+logs
+*.log
+*.log.*
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# IDE specific
+.vscode/
+.idea
+
+# Other generated files
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Temp files
+tmp/
+temp/
+
+# Other
+*.bak

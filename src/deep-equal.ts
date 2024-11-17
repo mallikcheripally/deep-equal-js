@@ -1,92 +1,97 @@
+/**
+ * Performs a deep equality check between two values.
+ * @param {*} a - The first value to compare.
+ * @param {*} b - The second value to compare.
+ * @param {WeakMap} [visited=new WeakMap()] - Internal parameter to handle circular references.
+ * @returns {boolean} - True if values are deeply equal, false otherwise.
+ */
 const deepEqual = (a: any, b: any, visited: WeakMap<object, any> = new WeakMap()): boolean => {
-    if (a && b && typeof a === 'object' && typeof b === 'object') {
-        if (a.constructor !== b.constructor) return false;
+    if (a === b || (a !== a && b !== b)) return true;
 
-        if (visited.has(a) && visited.get(a) === b) return true;
-        visited.set(a, b);
+    // If either is null or not an object, they are not equal
+    if (!a || !b || typeof a !== 'object' || typeof b !== 'object') return false;
 
-        // Array comparison
-        if (Array.isArray(a)) {
-            const length = a.length;
-            if (length !== (b as any[]).length) return false;
-            for (let i = length; i-- !== 0; ) {
-                if (!deepEqual(a[i], (b as any[])[i], visited)) return false;
-            }
-            return true;
+    // Check constructor equality
+    if (a.constructor !== b.constructor) return false;
+
+    // Circular reference check
+    if (visited.has(a)) return visited.get(a) === b;
+    visited.set(a, b);
+
+    // Array comparison
+    if (Array.isArray(a)) {
+        if (!Array.isArray(b) || a.length !== b.length) return false;
+        for (let i = 0; i < a.length; i++) {
+            if (!deepEqual(a[i], b[i], visited)) return false;
         }
-
-        // Map comparison
-        if (a instanceof Map && b instanceof Map) {
-            if (a.size !== b.size) return false;
-            // @ts-ignore
-            for (const [keyA, valueA] of a) {
-                let found = false;
-                // @ts-ignore
-                for (const [keyB, valueB] of b) {
-                    if (deepEqual(keyA, keyB, visited) && deepEqual(valueA, valueB, visited)) {
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) return false;
-            }
-            return true;
-        }
-
-        // Set comparison
-        if (a instanceof Set && b instanceof Set) {
-            if (a.size !== b.size) return false;
-            // @ts-ignore
-            for (const valA of a) {
-                let found = false;
-                // @ts-ignore
-                for (const valB of b) {
-                    if (deepEqual(valA, valB, visited)) {
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) return false;
-            }
-            return true;
-        }
-
-        // TypedArray comparison
-        if (ArrayBuffer.isView(a) && ArrayBuffer.isView(b)) {
-            if (a.byteLength !== b.byteLength) return false;
-            for (let i = a.byteLength; i-- !== 0; ) {
-                if ((a as any)[i] !== (b as any)[i]) return false;
-            }
-            return true;
-        }
-
-        // RegExp comparison
-        if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
-
-        // Primitive wrappers (e.g., Date, String)
-        if (a.valueOf !== Object.prototype.valueOf) return a.valueOf() === b.valueOf();
-        if (a.toString !== Object.prototype.toString) return a.toString() === b.toString();
-
-        // Object key comparison
-        const keysA = Object.keys(a);
-        const keysB = Object.keys(b);
-        if (keysA.length !== keysB.length) return false;
-
-        for (let i = keysA.length; i-- !== 0; ) {
-            if (!Object.prototype.hasOwnProperty.call(b, keysA[i])) return false;
-        }
-
-        // Recursively compare properties
-        for (let i = keysA.length; i-- !== 0; ) {
-            const key = keysA[i];
-            if (!deepEqual(a[key], b[key], visited)) return false;
-        }
-
         return true;
     }
 
-    // Return true if both are NaN, false otherwise
-    return a === b || (a !== a && b !== b);
+    // Map comparison
+    if (a instanceof Map) {
+        if (!(b instanceof Map) || a.size !== b.size) return false;
+        // @ts-ignore
+        for (const [keyA, valueA] of a) {
+            if (!b.has(keyA) || !deepEqual(valueA, b.get(keyA), visited)) return false;
+        }
+        return true;
+    }
+
+    // Set comparison
+    if (a instanceof Set) {
+        if (!(b instanceof Set) || a.size !== b.size) return false;
+        // @ts-ignore
+        for (const valA of a) {
+            let hasValue = false;
+            // @ts-ignore
+            for (const valB of b) {
+                if (deepEqual(valA, valB, visited)) {
+                    hasValue = true;
+                    break;
+                }
+            }
+            if (!hasValue) return false;
+        }
+        return true;
+    }
+
+    // TypedArray comparison
+    if (ArrayBuffer.isView(a)) {
+        // @ts-ignore
+        if (!ArrayBuffer.isView(b) || a.constructor !== b.constructor || a.length !== b.length) return false;
+        // @ts-ignore
+        for (let i = 0; i < a.length; i++) {
+            // @ts-ignore
+            if (a[i] !== b[i]) return false;
+        }
+        return true;
+    }
+
+    // RegExp comparison
+    if (a instanceof RegExp) {
+        return a.source === b.source && a.flags === b.flags;
+    }
+
+    // Date comparison
+    if (a instanceof Date) {
+        return a.getTime() === b.getTime();
+    }
+
+    // Primitive wrappers (String, Number, Boolean)
+    if (typeof a.valueOf === 'function' && typeof b.valueOf === 'function' && a.valueOf() !== a) {
+        return a.valueOf() === b.valueOf();
+    }
+
+    // Object comparison
+    const keysA = Object.keys(a);
+    if (keysA.length !== Object.keys(b).length) return false;
+    for (let i = 0; i < keysA.length; i++) {
+        const key = keysA[i];
+        if (!Object.prototype.hasOwnProperty.call(b, key) || !deepEqual(a[key], b[key], visited)) {
+            return false;
+        }
+    }
+    return true;
 };
 
 export default deepEqual;

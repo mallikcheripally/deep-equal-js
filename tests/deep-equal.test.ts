@@ -65,14 +65,14 @@ describe('deepEqual', () => {
     });
 
     test('String should return true', () => {
-        const str1 = new String('1');
-        const str2 = new String('1');
+        const str1 = String('1');
+        const str2 = String('1');
         expect(deepEqual(str1, str2)).toBe(true);
     });
 
     test('String should return false', () => {
-        const str1 = new String('1');
-        const str2 = new String('2');
+        const str1 = String('1');
+        const str2 = String('2');
         expect(deepEqual(str1, str2)).toBe(true);
     });
 

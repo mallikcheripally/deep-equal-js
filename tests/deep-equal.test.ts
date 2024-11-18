@@ -64,6 +64,18 @@ describe('deepEqual', () => {
         expect(deepEqual(func1, func2)).toBe(false);
     });
 
+    test('String should return true', () => {
+        const str1 = new String('1');
+        const str2 = new String('1');
+        expect(deepEqual(str1, str2)).toBe(true);
+    });
+
+    test('String should return false', () => {
+        const str1 = new String('1');
+        const str2 = new String('2');
+        expect(deepEqual(str1, str2)).toBe(true);
+    });
+
     test('Map should return true', () => {
         const map1 = new Map();
         const map2 = new Map();

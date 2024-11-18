@@ -4,10 +4,10 @@
   "description": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mallikcheripally/colore-js.git"
+    "url": "https://github.com/mallikcheripally/deep-equal-js.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mallik Cheripally",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.js",

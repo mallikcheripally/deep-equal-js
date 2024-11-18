@@ -30,9 +30,8 @@ const deepEqual = (a: any, b: any, visited: WeakMap<object, any> = new WeakMap()
     // Map comparison
     if (a instanceof Map) {
         if (!(b instanceof Map) || a.size !== b.size) return false;
-        // @ts-ignore
         for (const [keyA, valueA] of a) {
-            if (!b.has(keyA) || !deepEqual(valueA, b.get(keyA), visited)) return false;
+            if (!b.has(keyA) || !deepEqual(a.get(keyA), b.get(keyA), visited)) return false;
         }
         return true;
     }
@@ -40,10 +39,8 @@ const deepEqual = (a: any, b: any, visited: WeakMap<object, any> = new WeakMap()
     // Set comparison
     if (a instanceof Set) {
         if (!(b instanceof Set) || a.size !== b.size) return false;
-        // @ts-ignore
         for (const valA of a) {
             let hasValue = false;
-            // @ts-ignore
             for (const valB of b) {
                 if (deepEqual(valA, valB, visited)) {
                     hasValue = true;

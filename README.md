@@ -66,10 +66,10 @@ console.log(deepEqual(null, undefined)); // false
 
 We welcome contributions from the community to make this library better. If you find any issues or have suggestions for improvements, feel free to contribute or open an issue on our [GitHub Repository](https://github.com/mallikcheripally/deep-equal-js).
 
-### License
+# License
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-### Something Missing?
+# Something Missing?
 
 If you find any issues or have suggestions for improvements, feel free to contribute or open an issue on our [GitHub Repository](https://github.com/mallikcheripally/deep-equal-js).

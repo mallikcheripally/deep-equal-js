@@ -73,7 +73,7 @@ describe('deepEqual', () => {
     test('String should return false', () => {
         const str1 = String('1');
         const str2 = String('2');
-        expect(deepEqual(str1, str2)).toBe(true);
+        expect(deepEqual(str1, str2)).toBe(false);
     });
 
     test('Map should return true', () => {

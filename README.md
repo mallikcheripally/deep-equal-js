@@ -1,7 +1,7 @@
 # deep-equal-js
 
 <div style="font-size: 20px">
-Blazing fast utility to compare deep equal values.
+Blazing fast utility for deep equality checks.
 </div>
 
  <br />

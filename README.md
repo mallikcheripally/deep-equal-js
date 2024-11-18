@@ -7,7 +7,7 @@ Blazing fast utility to compare deep equal values.
  <br />
 
 <div>
-  <a href="https://www.npmjs.com/package/colore-js">
+  <a href="https://www.npmjs.com/package/deep-equal-js">
     <img alt="npm" src="https://img.shields.io/npm/v/deep-equal-js.svg" />
   </a>
   <a href="https://github.com/mallikcheripally/deep-equal-js/actions">
@@ -16,11 +16,11 @@ Blazing fast utility to compare deep equal values.
   <a href="https://github.com/mallikcheripally/deep-equal-js/blob/main/LICENSE">
     <img alt="license" src="https://img.shields.io/npm/l/deep-equal-js.svg" />
   </a>
-  <a href="https://www.npmjs.com/package/colore-js">
+  <a href="https://www.npmjs.com/package/deep-equal-js">
     <img alt="downloads" src="https://img.shields.io/npm/dm/deep-equal-js.svg" />
   </a>
-  <a href="https://codecov.io/gh/mallikcheripally/deep-equal">
-    <img alt="types included" src="https://codecov.io/gh/mallikcheripally/deep-equal/branch/main/graph/badge.svg" />
+  <a href="https://codecov.io/gh/mallikcheripally/deep-equal-js">
+    <img alt="types included" src="https://codecov.io/gh/mallikcheripally/deep-equal-js/branch/main/graph/badge.svg" />
   </a>
 </div>
 
@@ -61,3 +61,15 @@ console.log(deepEqual(NaN, NaN)) // true
 conseole.log(deepEqual(9, '9')); // false
 console.log(deepEqual(null, undefined)); // false
 ```
+
+# Contributing
+
+We welcome contributions from the community to make this library better. If you find any issues or have suggestions for improvements, feel free to contribute or open an issue on our [GitHub Repository](https://github.com/mallikcheripally/deep-equal-js).
+
+### License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+### Something Missing?
+
+If you find any issues or have suggestions for improvements, feel free to contribute or open an issue on our [GitHub Repository](https://github.com/mallikcheripally/deep-equal-js).

@@ -26,7 +26,9 @@ Blazing fast utility for deep equality checks.
 
 # Features
 
-ES6 module with TypeScript.
+ES6 module supporting JavaScript and TypeScript. 
+
+Supports checking:
 - Objects
 - Arrays
 - Maps

@@ -1,12 +1,22 @@
 {
   "name": "deep-equal-js",
   "version": "0.1.0",
-  "description": "",
+  "description": "Blazing fast utility for deep equality checks",
   "repository": {
     "type": "git",
     "url": "https://github.com/mallikcheripally/deep-equal-js.git"
   },
-  "keywords": [],
+  "keywords": [
+    "deep equal",
+    "equal",
+    "equals",
+    "deep compare",
+    "fast deep equal",
+    "fast compare",
+    "fast",
+    "equality",
+    "check equal"
+  ],
   "author": "Mallik Cheripally",
   "license": "MIT",
   "type": "module",

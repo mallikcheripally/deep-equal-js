@@ -60,7 +60,7 @@ console.log(deepEqual([1, 2], [1, 2])); // true
 console.log(deepEqual(9, 9)); // true
 console.log(deepEqual('test', 'test')); // true
 console.log(deepEqual(NaN, NaN)) // true
-conseole.log(deepEqual(9, '9')); // false
+console.log(deepEqual(9, '9')); // false
 console.log(deepEqual(null, undefined)); // false
 ```
 

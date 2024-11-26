@@ -11,3 +11,4 @@ rollup.config.cjs
 tsconfig.json
 yarn.lock
 */.DS_Store
+CHANGELOG.md

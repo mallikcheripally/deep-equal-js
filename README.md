@@ -37,7 +37,7 @@ Supports checking:
 - RegExp
 - Date
 - Primitives and primitive wrappers (String, Number, Boolean)
-- null, undefined, NaN, and circular references.
+- null, undefined, and NaN.
 
 # Installation
 

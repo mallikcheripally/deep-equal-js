@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/mallikcheripally/deep-equal-js/compare/v0.2.0...v0.2.1) (2024-11-26)
+
+
+### Chores
+
+* update .npmignore to include CHANGELOG.md ([902ba14](https://github.com/mallikcheripally/deep-equal-js/commit/902ba14c7907fec014d4260b8db361ffa1711aab))
+
 ## [0.2.0](https://github.com/mallikcheripally/deep-equal-js/compare/v0.1.1...v0.2.0) (2024-11-26)
 
 

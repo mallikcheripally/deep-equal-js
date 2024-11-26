@@ -1,6 +1,6 @@
 {
   "name": "deep-equal-js",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Blazing fast utility for deep equality checks",
   "repository": {
     "type": "git",

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/mallikcheripally/deep-equal-js/compare/v0.1.1...v0.2.0) (2024-11-26)
+
+
+### Code Refactoring
+
+* improve deepEqual function with performance and readability ([5bd41ad](https://github.com/mallikcheripally/deep-equal-js/commit/5bd41adb44647988770e570d3ac85abf28f0f225))
+
+
+### Documentation
+
+* update README ([cf1faba](https://github.com/mallikcheripally/deep-equal-js/commit/cf1faba2d1a4f0f268cbf7a76e29dab8f88da320))
+
 ### [0.1.1](https://github.com/mallikcheripally/deep-equal-js/compare/v0.1.0...v0.1.1) (2024-11-21)
 
 

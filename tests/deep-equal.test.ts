@@ -23,6 +23,10 @@ describe('deepEqual', () => {
         const arr1 = [1, 2, 3, { a: 1 }];
         const arr2 = [1, 2, 3, { a: 2} ];
         expect(deepEqual(arr1, arr2)).toBe(false);
+
+        const arr3 = [1, 2, 3, null];
+        const arr4 = [1, 2, 3, undefined ];
+        expect(deepEqual(arr3, arr4)).toBe(false);
     });
 
     test('null should return true', () => {
@@ -35,6 +39,10 @@ describe('deepEqual', () => {
 
     test('null and undefined should return false', () => {
         expect(deepEqual(null, undefined)).toBe(false);
+    });
+
+    test('undefined and object should return false', () => {
+        expect(deepEqual(undefined, {})).toBe(false);
     });
 
     test('number should return true', () => {
@@ -129,7 +137,9 @@ describe('deepEqual', () => {
     test('Regex should return false', () => {
         const reg1 = /a/g;
         const reg2 = /b/g;
+        const reg3 = function regex() {};
         expect(deepEqual(reg1, reg2)).toBe(false);
+        expect(deepEqual(reg2, reg3)).toBe(false);
     });
 
     test('Date should return true', () => {
